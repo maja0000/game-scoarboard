@@ -9,7 +9,6 @@ const Stats = () => {
         const totalPoints = context.players.reduce((total, player) => {
           return total + player.score;
         }, 0);
-
         return (
           <table className="stats">
             <tbody>
