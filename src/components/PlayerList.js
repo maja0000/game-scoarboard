@@ -1,22 +1,17 @@
 import React from 'react';
-import Player from './Player';
 import { Consumer } from './Context/Context';
+import Player from './Player';
 
 const PlayerList = () => {
   return (
     <Consumer>
-      {(context) => {
-        {
-          context.players.map((player, index) => (
-            <Player
-              {...player}
-              key={player.id.toString()}
-              index={index}
-              removePlayer={context.removePlayer}
-            />
-          ));
-        }
-      }}
+      {({ players }) => (
+        <React.Fragment>
+          {players.map((player, index) => (
+            <Player key={player.id.toString()} index={index} />
+          ))}
+        </React.Fragment>
+      )}
     </Consumer>
   );
 };
